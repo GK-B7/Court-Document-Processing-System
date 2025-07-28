@@ -1,0 +1,100 @@
+2025-07-28 02:12:39,328 - main - INFO - Document upload successful. Job ID: 6084d8da-fc13-4566-a153-9eece5c192ba
+2025-07-28 02:12:39,344 - main - INFO - Starting document processing for job 6084d8da-fc13-4566-a153-9eece5c192ba
+2025-07-28 02:12:39,510 - agents.base_agent - INFO - [preprocessing_agent] Opened PDF – {'pages': 1}
+2025-07-28 02:12:39,595 - agents.base_agent - INFO - [preprocessing_agent] Finished preprocessing – {'pages': 1}
+2025-07-28 02:12:39,595 - agents.base_agent - INFO - [extraction_agent] Starting extraction – {'pages': 1}
+2025-07-28 02:12:45,726 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 02:12:45,754 - agents.base_agent - INFO - [extraction_agent] Extraction completed – {'pairs_found': 1, 'pages_processed': 1, 'duration': '6.15s'}
+2025-07-28 02:12:45,761 - agents.base_agent - INFO - [validation_agent] Starting validation – {'pairs': 1}
+2025-07-28 02:12:45,761 - agents.base_agent - INFO - [validation_agent] Individual validation completed – {'invalid_id_format': 0, 'missing_action': 0, 'low_confidence': 0, 'valid': 1}
+2025-07-28 02:12:45,761 - agents.base_agent - INFO - [validation_agent] Deduplication completed – {'input_pairs': 1, 'output_pairs': 1, 'duplicates_removed': 0}
+2025-07-28 02:12:45,761 - agents.base_agent - INFO - [validation_agent] Confidence filtering completed – {'threshold': 0.5, 'kept': 1, 'filtered_out': 0}
+2025-07-28 02:12:45,761 - agents.base_agent - INFO - [validation_agent] Validation statistics – {'input_count': 1, 'output_count': 1, 'retention_rate': '100.0%', 'confidence_distribution': {'high (>= 0.9)': 1, 'medium (0.7-0.9)': 0, 'low (< 0.7)': 0}, 'review_needed': 1, 'action_distribution': {'freeze_accounts': 1}}
+2025-07-28 02:12:45,761 - agents.base_agent - INFO - [validation_agent] Validation completed – {'input_pairs': 1, 'output_pairs': 1, 'duration': '0.01s'}
+2025-07-28 02:12:45,909 - agents.customer_lookup_agent - INFO - Customer lookup stats
+2025-07-28 02:12:45,909 - agents.customer_lookup_agent - INFO - Customer lookup completed successfully
+2025-07-28 02:12:46,043 - agents.base_agent - INFO - [action_matching_agent] Starting action matching – {'pairs': 1}
+2025-07-28 02:12:46,847 - agents.base_agent - INFO - [action_matching_agent] Action Matching Statistics – {'total_processed': 1, 'freeze_funds_matches': '1 (100.0%)', 'release_funds_matches': '0 (0.0%)', 'unknown_actions': '0 (0.0%)', 'high_confidence': '0 (0.0%)', 'medium_confidence': '1 (100.0%)', 'low_confidence': '0 (0.0%)', 'processing_time': '0.80s', 'actions_per_second': '1.2'}
+2025-07-28 02:12:46,847 - agents.base_agent - INFO - [action_matching_agent] Action matching completed – {'total_actions': 1, 'freeze_matches': 1, 'release_matches': 0, 'unknown': 0, 'duration': '0.80s'}
+2025-07-28 02:12:46,847 - agents.base_agent - INFO - [review_router_agent] Starting review routing – {'actions': 1}
+2025-07-28 02:12:46,847 - agents.base_agent - INFO - [review_router_agent] Review queue entries created – {'count': 0}
+2025-07-28 02:12:46,857 - agents.base_agent - INFO - [review_router_agent] Review routing statistics – {'routing_summary': {'total_actions': 1, 'auto_approved': 1, 'review_required': 0, 'auto_approval_rate': '100.0%', 'review_rate': '0.0%'}, 'review_reasons': {}, 'risk_levels': {'medium': 1}, 'priority_levels': {}, 'confidence_stats': {'average': '0.950', 'above_auto_threshold': 1, 'below_review_threshold': 0}, 'customer_status_distribution': {'active': 1}}
+2025-07-28 02:12:46,858 - agents.base_agent - INFO - [review_router_agent] Review routing completed – {'total_actions': 1, 'auto_approved': 1, 'review_required': 0, 'duration': '0.00s'}
+2025-07-28 02:12:46,862 - agents.base_agent - INFO - [execution_agent] Starting action execution – {'actions': 1}
+2025-07-28 02:12:46,863 - services.action_executor - INFO - Executing action 'freeze_funds' for customer 1122334455
+2025-07-28 02:12:46,865 - services.action_executor - WARNING - Customer with ID '1122334455' not found in database
+2025-07-28 02:12:46,877 - agents.base_agent - INFO - [execution_agent] Execution Statistics – {'total_executed': 1, 'successful': '0 (0.0%)', 'failed': '1 (100.0%)', 'freeze_funds': 0, 'release_funds': 0, 'unknown_actions': 0, 'total_execution_time': '0.00s', 'average_time_per_action': '0.00s', 'processing_duration': '0.02s'}
+2025-07-28 02:12:46,879 - agents.base_agent - INFO - [execution_agent] Action execution completed – {'total_actions': 1, 'successful': 0, 'failed': 1, 'duration': '0.02s'}
+2025-07-28 02:12:46,880 - agents.base_agent - INFO - [logging_agent] Starting comprehensive logging – {'job_id': '6084d8da-fc13-4566-a153-9eece5c192ba'}
+2025-07-28 02:12:46,888 - agents.base_agent - INFO - [logging_agent] Final job status updated – {'job_id': '6084d8da-fc13-4566-a153-9eece5c192ba', 'status': 'processing'}
+2025-07-28 02:12:46,899 - agents.base_agent - INFO - [logging_agent] Comprehensive logging completed – {'job_id': '6084d8da-fc13-4566-a153-9eece5c192ba', 'duration': '0.02s'}
+2025-07-28 02:12:46,899 - main - INFO - Extracted counts - extracted_pairs: 1, customers_found: 0, customers_not_found: 1, auto_completed: 0, review: 0, auto_approved: 1
+2025-07-28 02:12:46,899 - services.action_executor - INFO - Executing action 'freeze_funds' for customer CUST003
+2025-07-28 02:12:46,908 - services.action_executor - INFO - Freezing funds for customer CUST003
+2025-07-28 02:12:48,770 - services.action_executor - INFO - Freeze funds completed for customer CUST003
+2025-07-28 02:12:48,771 - main - INFO - Successfully executed freeze_funds for customer CUST003
+2025-07-28 02:12:48,771 - main - INFO - Auto-executed 1 actions for job 6084d8da-fc13-4566-a153-9eece5c192ba
+2025-07-28 14:20:34,753 - main - INFO - Shutting down Document Processing API...
+2025-07-28 14:20:34,769 - background - INFO - Stopping background job manager...
+2025-07-28 14:20:34,775 - background - INFO - Job monitor cancelled
+2025-07-28 14:20:34,775 - background - INFO - Job monitor stopped
+2025-07-28 14:20:34,775 - background - INFO - Worker worker-1 cancelled
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-1 stopped
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-4 cancelled
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-4 stopped
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-0 cancelled
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-0 stopped
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-2 cancelled
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-2 stopped
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-3 cancelled
+2025-07-28 14:20:34,785 - background - INFO - Worker worker-3 stopped
+2025-07-28 14:20:34,797 - background - INFO - Background job manager stopped
+2025-07-28 14:20:34,797 - main - INFO - Application shutdown completed
+2025-07-28 14:22:10,619 - main - INFO - Starting Document Processing API...
+2025-07-28 14:22:10,778 - main - INFO - Existing tables verified: 3 customers, 2 actions
+2025-07-28 14:22:10,857 - main - INFO - Supporting database tables initialized successfully
+2025-07-28 14:22:10,857 - background - INFO - Starting background job manager...
+2025-07-28 14:22:10,857 - background - INFO - Background job manager started with 5 workers
+2025-07-28 14:22:10,927 - vector_store - INFO - Cleared existing action data
+2025-07-28 14:22:10,927 - vector_store - INFO - Loaded 2 actions from database
+2025-07-28 14:22:13,268 - vector_store - INFO - Initialized vector store with 2 actions from database
+2025-07-28 14:22:13,268 - vector_store - INFO - Action store initialized successfully
+2025-07-28 14:22:13,268 - main - INFO - Application startup completed successfully
+2025-07-28 14:22:13,268 - background - INFO - Worker worker-0 started
+2025-07-28 14:22:13,268 - background - INFO - Worker worker-1 started
+2025-07-28 14:22:13,268 - background - INFO - Worker worker-2 started
+2025-07-28 14:22:13,268 - background - INFO - Worker worker-3 started
+2025-07-28 14:22:13,268 - background - INFO - Worker worker-4 started
+2025-07-28 14:22:13,268 - background - INFO - Job monitor started
+2025-07-28 14:22:30,257 - main - INFO - Shutting down Document Processing API...
+2025-07-28 14:22:30,257 - background - INFO - Stopping background job manager...
+2025-07-28 14:22:30,257 - background - INFO - Job monitor cancelled
+2025-07-28 14:22:30,257 - background - INFO - Job monitor stopped
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-1 cancelled
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-1 stopped
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-4 cancelled
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-4 stopped
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-0 cancelled
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-0 stopped
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-2 cancelled
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-2 stopped
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-3 cancelled
+2025-07-28 14:22:30,257 - background - INFO - Worker worker-3 stopped
+2025-07-28 14:22:30,257 - background - INFO - Background job manager stopped
+2025-07-28 14:22:30,265 - main - INFO - Application shutdown completed
+2025-07-28 14:23:05,134 - main - INFO - Starting Document Processing API...
+2025-07-28 14:23:05,278 - main - INFO - Existing tables verified: 3 customers, 2 actions
+2025-07-28 14:23:05,356 - main - INFO - Supporting database tables initialized successfully
+2025-07-28 14:23:05,356 - background - INFO - Starting background job manager...
+2025-07-28 14:23:05,356 - background - INFO - Background job manager started with 5 workers
+2025-07-28 14:23:05,483 - vector_store - INFO - Cleared existing action data
+2025-07-28 14:23:05,498 - vector_store - INFO - Loaded 2 actions from database
+2025-07-28 14:23:07,735 - vector_store - INFO - Initialized vector store with 2 actions from database
+2025-07-28 14:23:07,735 - vector_store - INFO - Action store initialized successfully
+2025-07-28 14:23:07,735 - main - INFO - Application startup completed successfully
+2025-07-28 14:23:07,735 - background - INFO - Worker worker-0 started
+2025-07-28 14:23:07,735 - background - INFO - Worker worker-1 started
+2025-07-28 14:23:07,735 - background - INFO - Worker worker-2 started
+2025-07-28 14:23:07,735 - background - INFO - Worker worker-3 started
+2025-07-28 14:23:07,735 - background - INFO - Worker worker-4 started
+2025-07-28 14:23:07,735 - background - INFO - Job monitor started

@@ -1,0 +1,65 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Database
+psycopg2-binary
+
+# Agent Framework and State Management
+langgraph
+langchain
+langchain-openai
+langchain-community
+
+# Vector Database
+chromadb
+
+# OpenAI Integration
+openai
+
+# PDF Processing
+pdfplumber
+PyMuPDF
+
+# OCR
+pytesseract
+Pillow
+
+# Configuration Management
+pydantic
+pydantic-settings
+python-dotenv
+
+# Data Processing
+pandas
+numpy
+
+# System Monitoring
+psutil
+
+# HTTP Client
+httpx
+
+# JSON and Data Validation
+jsonschema
+
+# Date and Time
+python-dateutil
+
+# Security
+cryptography
+
+# Testing (Development)
+pytest
+pytest-asyncio
+
+# Image processing (for OCR)
+opencv-python
+
+# Embeddings
+sentence-transformers
+
+# Additional Utilities
+asyncio
+aiofiles
