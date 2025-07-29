@@ -205,7 +205,7 @@ class ExecutionAgent(BaseAgent):
         """
         try:
             # Use the dummy function
-            result = await action_executor.execute_action(action.national_id, 'freeze_funds')
+            result = await action_executor.execute_action(action.customer_id, 'freeze_funds')
             
             if result['status'] == ActionResult.SUCCESS.value:
                 return ExecutionResult(

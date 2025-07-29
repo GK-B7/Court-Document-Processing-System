@@ -24,7 +24,6 @@ PyMuPDF
 
 # OCR
 pytesseract
-Pillow
 
 # Configuration Management
 pydantic
@@ -35,31 +34,8 @@ python-dotenv
 pandas
 numpy
 
-# System Monitoring
-psutil
-
-# HTTP Client
-httpx
-
-# JSON and Data Validation
-jsonschema
-
-# Date and Time
-python-dateutil
-
-# Security
-cryptography
-
-# Testing (Development)
-pytest
-pytest-asyncio
-
-# Image processing (for OCR)
-opencv-python
-
 # Embeddings
 sentence-transformers
 
 # Additional Utilities
 asyncio
-aiofiles

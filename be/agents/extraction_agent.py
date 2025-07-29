@@ -341,21 +341,4 @@ class ExtractionAgent(BaseAgent):
         return extractions
 
     # ------------------------------------------------------------------
-    def _estimate_token_count(self, text: str) -> int:
-        """
-        Rough estimation of token count for text
-        """
-        # Approximate: 1 token ≈ 4 characters for English text
-        return len(text) // 4
 
-    def _truncate_text_to_tokens(self, text: str, max_tokens: int) -> str:
-        """
-        Truncate text to fit within token limit
-        """
-        max_chars = max_tokens * 4  # Rough conversion
-        if len(text) <= max_chars:
-            return text
-            
-        # Truncate and add note
-        truncated = text[:max_chars-100]
-        return truncated + "\n\n[TEXT TRUNCATED DUE TO LENGTH]"
