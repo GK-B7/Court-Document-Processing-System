@@ -29,7 +29,6 @@ A full-stack application with Python backend services and React frontend, featur
 │   ├── config.py                     # Configuration settings
 │   ├── database.py                   # Database configuration
 │   ├── exceptions.py                 # Custom exceptions
-│   ├── init.sql                      # Database initialization
 │   ├── main.py                       # FastAPI main application
 │   ├── metrics.py                    # Application metrics
 │   ├── requirements.txt              # Python dependencies
